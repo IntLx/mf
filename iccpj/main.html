@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ICC</title>
+    <link rel="icon" type="image/x-icon" href="data:image/png;base64,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">
+    <section style="background-color: lightgrey;">
+
+    <link rel="stylesheet" href="styles.css">
+    
+    </a>
+    <script src="myscripts.js"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW0rUezr_N9DpdOAQfqoXEaE7GHpSv0ul_HA&usqp=CAU" type="image/png">
+    <style>
+      /* Style the header and navigation */
+      header {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        text-align: center;
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        background-color: #555;
+        padding: 10px;
+      }
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      nav li {
+        display: inline-block;
+        margin: 0 10px;
+        position: relative; /* Add relative position to li */
+      }
+      nav li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      nav li a:hover {
+        color: #ddd;
+      }
+      
+      /* Center the main content */
+      main {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        position: relative;
+        z-index: 1;
+      }
+      
+      /* Add some padding to the footer */
+      footer {
+        padding: 10px;
+        text-align: center;
+      }
+
+      /* Set the video as the background */
+      video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% ;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+        border:1px solid grey;
+        border-radius: 10px;
+        padding:2px;
+        background-color: white;
+        color:black;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+
+
+    
+  <h1>Issues On Climate Change</h1>
+  <style type="text/css">* {cursor: url(https://ani.cursors-4u.net/cursors/cur-12/cur1103.ani), url(https://ani.cursors-4u.net/cursors/cur-12/cur1103.png), auto !important;}</style><a href="https://www.cursors-4u.com/cursor/2014/03/14/rainbow-pinwheel-pointer.html" target="_blank" title="Rainbow Pinwheel Pointer"><img src="https://cur.cursors-4u.net/cursor.png" border="0" alt="Rainbow Pinwheel Pointer" style="position:absolute; top: 0px; right: 0px;" /></a>
+  
+  <nav>
+    <ul>
+      <li>
+        <a href="RedirectRes\Success.html" target="_blank">Success Stories</a>
+      </li>
+      <li>
+        <a href="RedirectRes\QuestionsAbtCC.html" target="_blank">(FAQs)</a>
+      </li>
+      <li>
+        <a href="RedirectRes\SDG.html" target="_blank">Linked SDG Goals</a>
+      </li>
+      <li>
+        <a href="RedirectRes\Resources.html" target="_blank">Resources</a>
+      </li>
+      <li>
+        <a href="RedirectRes\Calculate Your Carbon Footprint.html" target="_blank">Calculate Your Carbon Footprint</a>
+      </li>
+      <li>
+        <a href="RedirectRes\contact.html" target="_blank">About Us</a>
+      </li>
+    </ul>
+  </nav>
+  
+</header>
+
+    <main>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  <div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://www.noaa.gov/sites/default/files/styles/landscape_width_1275/public/2022-03/PHOTO-Climate-Collage-Diagonal-Design-NOAA-Communications-NO-NOAA-Logo.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://ichef.bbci.co.uk/news/640/cpsprodpb/2B08/production/_127561011_climate_5_cc_index_and_article_image_template_976-ncclimate_change_article_image_template_976-nc.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://climate.nasa.gov/internal_resources/2558" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+    
+  </div>
+
+<div class="box">
+  <p style="font-weight: bold; font-size: 24px; color:blue;">What Is Climate Change?</p>
+<p style="font-weight: bold; font-size: 15px; color:black;">Climate change refers to the long-term changes in the Earth's climate system, including its temperature, precipitation patterns, and other climatic variables. These changes are primarily caused by human activities, such as burning fossil fuels, deforestation, and industrial processes, that release large amounts of greenhouse gases into the atmosphere. The buildup of these gases, such as carbon dioxide, methane, and nitrous oxide, trap heat from the sun and cause the Earth's temperature to rise, leading to a range of negative impacts on our environment</p>
+
+<div>
+<p style="font-weight: bold; font-size: 24px; color: blue;">How does climate change affect the environment?</p>
+<p style="font-weight: bold; font-size: 15px; color:black;"> Climate change can have various impacts on the environment. It can cause an increase in global temperatures, which can lead to melting of glaciers, rising sea levels, and changes in precipitation patterns. These changes can cause more frequent and severe natural disasters such as floods, hurricanes, and droughts. Climate change can also result in the loss of biodiversity as it can affect the habitats and migration patterns of various species</h2>
+<div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+  <div class="card" style="width: 21rem; background-color: lightgrey;">
+  <img class="card-img-top" src="imagedatabase\droughtclimatechangecard.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title" style="color: blue; font-weight: bold;">Solutions To Climate Change</h5>
+    <p class="card-text" style="font-weight: bold; font-size: 15px; color: black;">There are many solutions to climate change, but they all require action from individuals, businesses, and governments. Some of the most important solutions include:</p>
+    <a href="https://climate.nasa.gov/solutions/resources/" class="btn btn-primary btn-lg" target="_blank">Helpful Resources</a>
+  </div>
+</div>
+
+
+      <div class="col">
+        <div class="row row-cols-1 row-cols-sm-2 g-4">
+          <div class="col d-flex flex-column gap-2">
+            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+              <svg class="bi" width="1em" height="1em">
+                <use xlink:href="#collection"></use>
+              </svg>
+            </div>
+            <h4 class="fw-semibold mb-0" style="color: blue;">Reducing greenhouse gas emissions</h4>
+            <p class="text-body-secondary" style="color: white;">This can be done by switching to renewable energy sources, improving energy efficiency, and reducing deforestation.</p>
+
+          </div>
+
+          <div class="col d-flex flex-column gap-2">
+            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+              <svg class="bi" width="1em" height="1em">
+                <use xlink:href="#gear-fill"></use>
+              </svg>
+            </div>
+            <h4 class="fw-semibold mb-0" style="color: blue;">Wind Energy</h4>
+            <p class="text-body-secondary" style="color: white;">Wind energy is a renewable energy source that can be used to generate electricity.</p>
+
+          </div>
+
+          <div class="col d-flex flex-column gap-2">
+            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+              <svg class="bi" width="1em" height="1em">
+                <use xlink:href="#speedometer"></use>
+              </svg>
+            </div>
+            <h4 class="fw-semibold mb-0" style="color: blue;">Solar Energy</h4>
+<p class="text-body-secondary" style="color: white;">Solar energy is a renewable energy source that comes from the sun.</p>
+
+          </div>
+
+          <div class="col d-flex flex-column gap-2">
+            <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+              <svg class="bi" width="1em" height="1em">
+                <use xlink:href="#table"></use>
+              </svg>
+            </div>
+            <h4 class="fw-semibold mb-0" style="color: blue;">Adapting to the impacts of climate change</h4>
+            <p class="text-body-secondary" style="color: black;">This includes measures such as building seawalls to protect coastal communities from rising sea levels, and developing drought-resistant crops.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+</style>
+</head>
+<body>
+
+  <style>
+    .mySlides img {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+  
+  <h2>Climate Change Issues</h2>
+  <p>IMAGES OF ISSUES AND EFFECTS OF CLIMATE CHANGE</p>
+  
+  <!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .mySlides {
+      display: none;
+    }
+
+    .fade {
+      animation: fadeEffect 1s ease-in-out infinite;
+    }
+
+    @keyframes fadeEffect {
+      0% {
+        opacity: 0;
+      }
+      25% {
+        opacity: 1;
+      }
+      75% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 3</div>
+      <img src="https://media.istockphoto.com/id/1350469075/photo/aerial-view-of-a-fishing-boat-on-a-drought-dry-lakebed.jpg?b=1&s=170667a&w=0&k=20&c=hBvqSpSi13HrKA5q-oXPgfO8e0jmJOJ_ZmoblOyN7mg=">
+      <div class="text" style="font-size: 34px;">Drought</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 3</div>
+      <img src="https://images.unsplash.com/photo-1615092296061-e2ccfeb2f3d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xpbWF0ZSUyMGNoYW5nZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60">
+      <div class="text" style="font-size: 34px;">Forest Fire</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 3</div>
+      <img src="https://climate-change-production.up.railway.app/assets/impacts/food.jpg">
+      <div class="text" style="font-size: 34px;">Loss Of Food</div>
+    </div>
+  </div>
+
+  <script>
+    var slideIndex = 0;
+    showSlides();
+  
+    function showSlides() {
+      var slides = document.getElementsByClassName("mySlides");
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000); // Change slide every 3 seconds
+    }
+  </script>
+  
+  
+</body>
+</html>
+
+  <br>
+  
+  <div style="text-align:center">
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+  </div>
+  
+  <script>
+    let slideIndex = 0;
+    showSlides();
+  
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, 4000); // Change image every 2 seconds
+    }
+  </script>
+  
+</html> 
+
+
+
+
+<p style="font-weight: bold; font-size: 24px; color: blue;">What Are The Causes Of Climate Change?</p>
+<p style="font-weight: bold; font-size: 15px; color:black;">Climate change has both natural and human causes. Natural causes include volcanic activity, solar radiation, and changes in the Earth's orbit and axis. However, the majority of climate change is caused by human activities, such as burning fossil fuels, deforestation, and agriculture. These activities release greenhouse gases, such as carbon dioxide, methane, and nitrous oxide, into the atmosphere, which trap heat and cause the Earth's temperature to rise.</p>
+
+<p style="font-weight: bold; font-size: 24px; color: blue ;">What are some innovative solutions being developed to tackle climate change?</p>
+<ul style="font-weight: bold; font-size: 15px; color:black;">
+  <li>Carbon capture and storage: This technology involves capturing carbon dioxide emissions from power plants and other industrial sources, and then storing them in underground geological formations.</li>
+  <li>Renewable energy: The use of renewable energy sources such as solar, wind, and hydropower can help to reduce greenhouse gas emissions and combat climate change.</li>
+  <li>Sustainable agriculture: Sustainable agriculture practices such as regenerative farming and agroforestry can help to sequester carbon in the soil and reduce greenhouse gas emissions.</li>
+  <li>Electric vehicles: The use of electric vehicles can help to reduce emissions from transportation and combat climate change.</li>
+  <li>Climate-smart cities: Cities can adopt climate-smart strategies such as green infrastructure, public transportation, and renewable energy to reduce emissions and build resilience to climate change impacts.</li>
+</ul> 
+<html>
+<head>
+  <style>
+    h5 {
+      font-weight: bold;
+      text-align: center;
+      transition: transform 1s ease, color 1s ease;
+    }
+    
+    h5.enter-transition {
+      transform: translateY(-50px);
+      opacity: 0;
+      color: black;
+    }
+    
+    h5.scroll-transition {
+      transform: translateX(-50%);
+      opacity: 1;
+    }
+    
+    h5.rainbow {
+      background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <h5 id="climate-change-heading" class="enter-transition">Climate change issues based on the Sustainable Development Goals (SDGs):</h5>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var heading = document.getElementById('climate-change-heading');
+      var bounding = heading.getBoundingClientRect();
+      var isVisible = (bounding.top >= 0 && bounding.bottom <= window.innerHeight);
+      
+      if (isVisible) {
+        heading.classList.remove('scroll-transition');
+      } else {
+        heading.classList.add('scroll-transition');
+      }
+    });
+    
+    window.addEventListener('DOMContentLoaded', function() {
+      var heading = document.getElementById('climate-change-heading');
+      setTimeout(function() {
+        heading.classList.remove('enter-transition');
+        heading.classList.add('rainbow');
+      }, 1000);
+      
+      setTimeout(function() {
+        heading.classList.remove('rainbow');
+      }, 6000);
+    });
+  </script>
+</body>
+</html>
+<div class="card-group">
+  <div class="card">
+    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEgG4DwmyHT6RI7KqvK4F-EUlmFqlA20-h_A&usqp=CAU" alt="SDG 13">
+    <div class="card-body">
+      <h5 class="card-title">SDG 13: Take urgent action to combat climate change and its impacts</h5>
+      <p class="card-text">The world is on track to warm by 1.5 degrees Celsius by 2030, and even if we take all necessary action, we will still see some level of warming. This will have a devastating impact on people and the planet, including more extreme weather events, rising sea levels, and mass displacement.</p>
+      
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="data:image/png;base64,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" alt="SDG 7">
+    <div class="card-body">
+      <h5 class="card-title">SDG 7: Ensure access to affordable, reliable, sustainable and modern energy for all</h5>
+      <p class="card-text">One of the most important things we can do to address climate change is to transition to a clean energy future. This means investing in renewable energy sources, such as solar and wind power, and phasing out fossil fuels.
+
+        Clean energy is not only good for the environment, it is also good for the economy. It can create jobs, boost economic growth, and improve public health.</p>
+      
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="data:image/png;base64,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" alt="SDG 11">
+    <div class="card-body">
+      <h5 class="card-title">SDG 11: Make cities inclusive, safe, resilient and sustainable</h5>
+      <p class="card-text">Cities are major contributors to climate change. They produce a lot of greenhouse gas emissions and are often vulnerable to the effects of climate change, such as floods and heat waves.
+
+        To make cities more sustainable, we need to invest in green infrastructure, such as trees and parks, and energy-efficient buildings. We also need to improve public transportation and make it easier for people to walk and bike.</p>
+      
+    </div>
+  </div>
+</div>
+
+
+<p style="font-weight: bold; font-size: 24px; color: blue ;">How can we reduce our carbon footprint in our daily lives?</p>
+<ul style="font-weight: bold; font-size: 15px; color:black;">
+  <li>Eat a plant-based diet: Eating less meat and dairy can significantly reduce our carbon footprint.</li>
+  <li>Reduce water usage: Fix leaks, take shorter showers, and install low-flow fixtures.</li>
+  <li>Reduce waste: Recycle, compost, and avoid single-use products.</li>
+  <li>Buy sustainable products: Look for products made from recycled or sustainable materials, and support companies with sustainable practices.</li>
+</ul>  
+</h1>       <ul class="list-unstyled ps-0">
+          <ul style="font-weight: bold; font-size: 15px; color:black;">
+  <li>International Reports:The Intergovernmental Panel on Climate Change (IPCC) released its Sixth Assessment Report (AR6) in 2021, providing an updated comprehensive assessment of the state of climate change science and impacts.</li>
+
+</div>
+<div class="container">
+  <footer class="py-5">
+    <div class="row">
+      <div class="col-6 col-md-2 mb-3">
+        <h5 style="font-weight: bold; font-size: 15px; color:black;">Resources</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="https://earthobservatory.nasa.gov/" class="nav-link p-0 text-muted"target="_blank">Earth Observatory</a></li>
+          <li class="nav-item mb-2"><a href="https://climate.nasa.gov/global-warming-vs-climate-change/" class="nav-link p-0 text-muted"target="_blank">Facts</a></li>
+          <li class="nav-item mb-2"><a href="https://ec.europa.eu/eurostat/statistics-explained/index.php?title=SDG_13_-_Climate_action#:~:text=Goal%2013%20seeks%20to%20implement,compared%20with%20pre-industrial%20times." class="nav-link p-0 text-muted"target="_blank">Summary</a></li>
+          <li class="nav-item mb-2"><a href="https://climate.nasa.gov/evidence/" class="nav-link p-0 text-muted"target="_blank">Evidence</a></li>
+        </ul>
+      </div>
+      
+
+          <h5 style="font-weight: bold; font-size: 25px; color:black;">Get In Touch!</h5>
+          <p style="font-weight: bold; font-size: 15px; color:black;">Get In Touch With Us!</p>
+          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+            <label for="newsletter1" class="visually-hidden">Email address</label>
+            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+            <button class="btn btn-primary" type="button">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p style="font-weight: bold; font-size: 15px; color:black;">© 2023 ICC, Inc. All rights reserved.</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+        <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+      </ul>
+    </div>
+  </footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+      </main>
+      <footer>
+      
+      <p style="font-weight: bold; font-size: 15px; color:black;">© 2023 ICC</p>
+      </footer>
+      
+        </body>
+      </html>
